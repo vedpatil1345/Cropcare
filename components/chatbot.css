@@ -1,0 +1,315 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #615858;
+    color: ghostwhite;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navbar styles */
+.navbar {
+    font-size: 18px;
+    background: linear-gradient(45deg, #ff7e5f, #feb47b);
+    border-bottom: #615858 4px solid;
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+    padding-bottom: 10px;
+    position: relative; /* Ensure navbar stays above chat overlay */
+    z-index: 1; /* Make sure navbar is above the chat overlay */
+}
+
+.main-nav {
+    list-style-type: none;
+    display: none;
+}
+
+.nav-links, .logo, .material-icons {
+    text-decoration: none;
+    color: ghostwhite;
+    opacity: 0.6;
+}
+
+.main-nav li {
+    text-align: center;
+    margin: 10px auto;
+}
+
+.logo {
+    display: flex;
+    font-size: 24px;
+    margin-top: 10px;
+    margin-left: 30px;
+}
+
+.logo img {
+    height: 50px;
+    width: 50px;
+    border-radius: 50px;
+}
+
+.logo p {
+    margin-top: 12px;
+    padding-left: 5px;
+}
+
+.toggle-nav {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.material-icons {
+    font-size: 24px;
+}
+
+.active {
+    display: block;
+}
+
+.nav-links {
+    color: black;
+}
+
+.paragraph {
+    color: black;
+}
+
+/* For large screens more than 600px */
+@media screen and (min-width: 600px) {
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 0;
+        height: 70px;
+        align-items: center;
+    }
+    .toggle-nav {
+        display: none;
+    }
+    .main-nav {
+        display: flex;
+        justify-content: end;
+        margin-right: 30px;
+    }
+    .main-nav > li {
+        margin: 0;
+    }
+    .nav-links {
+        margin-left: 20px;
+    }
+    .logo {
+        margin-top: 0;
+    }
+}
+
+/* Chat overlay styles */
+/* Chat overlay styles */
+.chat-overlay {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    z-index: 1000; /* Ensure it is above everything else */
+}
+
+.chat-input {
+    display: flex;
+    align-items: center;
+    position: relative;
+    background-color: #fff;
+    border-radius: 30px;
+    padding: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    margin-top: auto; /* Push to bottom */
+}
+
+.input-container {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    position: relative;
+}
+
+#image-preview {
+    width: 60px; /* Adjust size as needed */
+    height: 60px;
+    border: 1px solid #666;
+    border-radius: 4px;
+    background-color: #555;
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    display: none; /* Hidden by default */
+}
+
+#chat-textarea {
+    flex: 1;
+    height: 60px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 25px;
+    background: #fff;
+    color: #000;
+    margin-left: 70px; /* Space for image preview */
+    resize: none; /* Prevent resizing */
+    position: relative;
+}
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+button i.material-icons {
+    font-size: 20px;
+}
+
+#messages {
+    flex: 1;
+    margin-top: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Align messages to the right */
+}
+
+.message {
+    display: flex;
+    align-items: flex-start; /* Align items at the top of the message bubble */
+    margin-bottom: 10px;
+    color: ghostwhite;
+    max-width: 80%; /* Ensure messages don't stretch too wide */
+    justify-content: flex-end; /* Ensure messages don't stretch too wide */
+}
+
+.message.user {
+    justify-content: flex-end; /* Align user messages to the right */
+}
+
+.message img {
+    max-width: 150px; /* Adjust size as needed */
+    max-height: 150px;
+    border-radius: 10px;
+    margin-right: 10px;
+    object-fit: cover;/* Ensure the image fits within its container */
+}
+
+.message-content {
+    background-color: pink;
+    color: black;
+    padding: 10px;
+    border-radius: 20px;
+    max-width: 70%; /* Limit text width */
+    word-wrap: break-word; /* Allow text to wrap within the bubble */
+    display: inline-block;
+}
+
+.message img, .message .message-content {
+    vertical-align: top; /* Align image and text at the top */
+}
+
+/* Dropdown menu styles */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    bottom: 100%; /* Position the menu above the button */
+    left: 0;
+    background-color: #fff; /* Plain background */
+    border: 1px solid #ddd; /* Border for visibility */
+    border-radius: 4px; /* Rounded corners */
+    z-index: 1001; /* Ensure it appears above other elements */
+    width: max-content; /* Adjust width to fit content */
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.2); /* Optional: subtle shadow */
+    text-align: center; /* Center-align icons */
+}
+
+.dropdown-menu button {
+    background: none;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    cursor: pointer;
+    font-size: 24px; /* Small icon size */
+    color: black; /* Black color for icons */
+}
+
+.dropdown-menu button:hover {
+    background-color: #f1f1f1; /* Light background on hover */
+}
+
+/* Camera preview modal styles */
+.camera-modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1002; /* Ensure it is above everything else */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4); /* Black background with opacity */
+}
+
+.camera-modal .modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 400px;
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+}
+
+#camera-preview {
+    width: 100%;
+    height: auto;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.close-camera-modal {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-camera-modal:hover,
+.close-camera-modal:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#capture-btn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+#capture-btn:hover {
+    background-color: #0056b3;
+}

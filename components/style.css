@@ -1,0 +1,138 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #615858;
+    color: ghostwhite;
+}
+
+.navbar {
+    font-size: 18px;
+    background: linear-gradient(45deg, #ff7e5f, #feb47b);
+    border-bottom: #615858 4px solid;
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+    padding-bottom: 10px;
+}
+
+.main-nav {
+    list-style-type: none;
+    display: none;
+}
+
+.nav-links, .logo, .material-icons {
+    text-decoration: none;
+    color: ghostwhite;
+    opacity: 0.6;
+}
+
+.main-nav li {
+    text-align: center;
+    margin: 10px auto;
+}
+
+.logo {
+    display: flex;
+    font-size: 24px;
+    margin-top: 10px;
+    margin-left: 30px;
+}
+
+.logo img {
+    height: 50px;
+    width: 50px;
+    border-radius: 50px;
+}
+
+.logo p {
+    margin-top: 12px;
+    padding-left: 5px;
+}
+
+.toggle-nav {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.material-icons {
+    font-size: 24px;
+}
+
+.active {
+    display: block;
+}
+
+.nav-links {
+    color: black;
+}
+
+.paragraph {
+    color: black;
+}
+
+/* For large screens more than 600px */
+@media screen and (min-width: 600px) {
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 0;
+        height: 70px;
+        align-items: center;
+    }
+    .toggle-nav {
+        display: none;
+    }
+    .main-nav {
+        display: flex;
+        justify-content: end;
+        margin-right: 30px;
+    }
+    .main-nav > li {
+        margin: 0;
+    }
+    .nav-links {
+        margin-left: 20px;
+    }
+    .logo {
+        margin-top: 0;
+    }
+}
+
+/* Slide-Up Text CSS */
+.content-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 90px); /* Adjust based on navbar height */
+    background-color: #615858; /* Same as the body background */
+}
+
+.slide-up-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    height: 200px;
+    position: relative;
+}
+
+.slide-up-content {
+    text-align: center;
+    animation: slideUp 2s ease-in-out forwards;
+}
+
+.huge-text {
+    font-size: 64px;
+    color: ghostwhite;
+    margin: 0;
+}
+
+@keyframes slideUp {
+    0% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
