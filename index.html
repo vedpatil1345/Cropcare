@@ -18,7 +18,7 @@
         <ul class="main-nav" id="main-nav">
             <li><a href="#" class="nav-links" style="color: blue;">Home</a></li>
             <li><a href="dieses.html" class="nav-links">Dieses</a></li>
-            <li><a href="pic.html" class="nav-links">Option 2</a></li>
+            <li><a href="pic.html" class="nav-links">Agribot</a></li>
         </ul>
     </nav>
 
@@ -29,8 +29,34 @@
                 <h1 class="huge-text">Hello Farmers</h1>
             </div>
         </div>
+        <div class="card-container">
+            <div class="card1">
+    card1
+            </div>
+            <div class="card2">
+    card2
+            </div>
+        </div>
     </div>
+    
 
     <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+    // Get the card elements
+    const card1 = document.querySelector('.card1');
+    const card2 = document.querySelector('.card2');
+
+    // Add click event listeners to redirect
+    card1.addEventListener('click', () => {
+        window.location.href = 'dieses.html';
+    });
+
+    card2.addEventListener('click', () => {
+        window.location.href = 'pic.html';
+    });
+});
+
+    </script>
 </body>
 </html>

@@ -219,97 +219,171 @@ button i.material-icons {
 .message img, .message .message-content {
     vertical-align: top; /* Align image and text at the top */
 }
-
-/* Dropdown menu styles */
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-.dropdown-menu {
-    display: none;
-    position: absolute;
-    bottom: 100%; /* Position the menu above the button */
-    left: 0;
-    background-color: #fff; /* Plain background */
-    border: 1px solid #ddd; /* Border for visibility */
-    border-radius: 4px; /* Rounded corners */
-    z-index: 1001; /* Ensure it appears above other elements */
-    width: max-content; /* Adjust width to fit content */
-    box-shadow: 0px 4px 8px rgba(0,0,0,0.2); /* Optional: subtle shadow */
-    text-align: center; /* Center-align icons */
-}
-
-.dropdown-menu button {
-    background: none;
-    border: none;
-    padding: 10px;
-    width: 100%;
-    cursor: pointer;
-    font-size: 24px; /* Small icon size */
-    color: black; /* Black color for icons */
-}
-
-.dropdown-menu button:hover {
-    background-color: #f1f1f1; /* Light background on hover */
-}
-
-/* Camera preview modal styles */
-.camera-modal {
+/* Modal Background */
+.upload-options-modal {
     display: none; /* Hidden by default */
     position: fixed;
-    z-index: 1002; /* Ensure it is above everything else */
+    z-index: 1000;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0, 0, 0, 0.4); /* Black background with opacity */
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
 }
 
-.camera-modal .modal-content {
-    background-color: #fff;
+/* Modal Content */
+.upload-options-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+}
+
+/* Modal Buttons */
+.upload-option-btn {
+    background-color: #ff7e5f;
+    color: ghostwhite;
+    border: none;
+    padding: 12px 20px;
+    margin: 10px 0;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.upload-option-btn:hover {
+    background-color: #feb47b;
+}
+
+.upload-option-btn:last-child {
+    background-color: #ccc;
+}
+
+.upload-option-btn:last-child:hover {
+    background-color: #bbb;
+}
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
     margin: 15% auto;
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
-    max-width: 400px;
-    border-radius: 10px;
+    max-width: 300px;
     text-align: center;
-    position: relative;
+    border-radius: 10px;
 }
 
-#camera-preview {
-    width: 100%;
-    height: auto;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
-
-.close-camera-modal {
+.close-btn {
     color: #aaa;
     float: right;
     font-size: 28px;
     font-weight: bold;
 }
 
-.close-camera-modal:hover,
-.close-camera-modal:focus {
+.close-btn:hover,
+.close-btn:focus {
     color: black;
     text-decoration: none;
     cursor: pointer;
 }
 
-#capture-btn {
-    background-color: #007bff;
-    color: #fff;
+.camera-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1001; /* Higher z-index to overlap modal */
+}
+
+#camera-preview {
+    width: 100%;
+    height: auto;
+    max-width: 300px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+#capture-btn, #cancel-camera-btn {
+    padding: 10px 20px;
+    background-color: #ff7e5f;
+    color: white;
     border: none;
-    padding: 10px;
-    border-radius: 5px;
+    border-radius: 4px;
     cursor: pointer;
     margin-top: 10px;
 }
-
-#capture-btn:hover {
-    background-color: #0056b3;
+.message {
+    display: flex;
+    align-items: flex-start;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 8px;
 }
+
+.user {
+   
+    color: white;
+    align-self: flex-end;
+    margin-left: auto;
+}
+
+.bot {
+   
+    color: black;
+    align-self: flex-start;
+}
+#messages{
+    max-height: 550px;
+    overflow: auto;
+}
+.message img {
+    max-width: 100%;
+    border-radius: 8px;
+}
+
+.message-content {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.typing::after {
+    content: '...';
+    animation: typing 1s steps(5, end) infinite;
+}
+
+@keyframes typing {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
